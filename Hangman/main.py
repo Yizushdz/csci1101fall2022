@@ -1,7 +1,18 @@
 import re
+import random
 
 # getting the answer
-answer = "What's up, Doc?"
+pool_file = open("hangman/hangman-sample-answer-pool.txt")
+pool_answers = []
+
+pool_answer_line = pool_file.readline()
+while pool_answer_line:
+    pool_answers.append(pool_answer_line)
+    pool_answer_line = pool_file.readline()
+
+pool_file.close()
+
+answer = random.choice(pool_answers)
 answer = answer.upper()
 
 # Game setup.
